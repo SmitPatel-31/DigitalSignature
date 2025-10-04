@@ -1,12 +1,12 @@
 // Simple CLI for Ed25519 keygen, signing, and verification using OpenSSL EVP.
 // Build (Linux/Mac):
-//   g++ -std=c++17 digital_signatures.cpp -o dsign -lcrypto
+//   g++ -std=c++17 digital_signatures.cpp -o dsign -I/opt/homebrew/opt/openssl@3/include -L/opt/homebrew/opt/openssl@3/lib -lcrypto
 // Build (Windows MSYS2/MinGW):
 //   g++ -std=c++17 digital_signatures.cpp -o dsign.exe -lcrypto
 // Usage:
 //   Generate keys:   ./dsign gen-key private.pem public.pem
-//   Sign a file:     ./dsign sign private.pem input.bin signature.sig
-//   Verify a file:   ./dsign verify public.pem input.bin signature.sig
+//   Sign a file:     ./dsign sign private.pem hello.txt signature.sig
+//   Verify a file:   ./dsign verify public.pem hello.txt signature.sig
 
 #include <openssl/evp.h>
 #include <openssl/pem.h>
